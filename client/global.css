@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Complete Light Theme with Sage Green Color
+   * Optimized for accessibility and readability
+  */
+  :root {
+    /* Main background - Light blue */
+    --background: 210 20% 95%;
+    --foreground: 210 80% 25%;
+
+    /* Card backgrounds - Slightly lighter for contrast */
+    --card: 210 15% 98%;
+    --card-foreground: 210 80% 25%;
+
+    /* Popover backgrounds */
+    --popover: 210 15% 98%;
+    --popover-foreground: 210 80% 25%;
+
+    /* Primary - Medium blue for buttons and highlights */
+    --primary: 210 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Very light blue */
+    --secondary: 210 20% 90%;
+    --secondary-foreground: 210 70% 30%;
+
+    /* Muted - Light blue for subtle elements */
+    --muted: 210 20% 90%;
+    --muted-foreground: 210 50% 45%;
+
+    /* Accent - Slightly darker blue for highlights */
+    --accent: 200 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive - Red for errors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 210 25% 85%;
+    --input: 210 20% 92%;
+    --ring: 210 70% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors for the design */
+    --tech-blue: 210 70% 50%;
+    --coral: 200 60% 45%;
+    --sage-light: 210 20% 95%;
+    --sage-medium: 210 25% 85%;
+    --sage-dark: 210 70% 40%;
+    --card-bg: 210 15% 98%;
+    --border-subtle: 210 25% 85%;
+  }
+
+  /* Light theme only - no dark mode needed */
+  .light {
+    /* Same as root - ensuring light theme consistency */
+    --background: 210 20% 95%;
+    --foreground: 210 80% 25%;
+    --card: 210 15% 98%;
+    --card-foreground: 210 80% 25%;
+    --popover: 210 15% 98%;
+    --popover-foreground: 210 80% 25%;
+    --primary: 210 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 90%;
+    --secondary-foreground: 210 70% 30%;
+    --muted: 210 20% 90%;
+    --muted-foreground: 210 50% 45%;
+    --accent: 200 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 25% 85%;
+    --input: 210 20% 92%;
+    --ring: 210 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .tech-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--sage-light)),
+      hsl(var(--card-bg)),
+      hsla(var(--sage-medium), 0.3)
+    );
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px hsla(var(--sage-dark), 0.15);
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .glow-effect {
+    box-shadow:
+      0 0 15px hsla(var(--sage-dark), 0.25),
+      0 0 30px hsla(var(--sage-dark), 0.1);
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--sage-dark)),
+      hsl(var(--accent))
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Light theme specific styles */
+  .light-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--card-foreground));
+  }
+
+  .light-button {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    transition: all 0.2s ease;
+  }
+
+  .light-button:hover {
+    background: hsl(var(--accent));
+    transform: translateY(-1px);
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animate-delay-600 {
+    animation-delay: 0.6s;
+  }
+}
